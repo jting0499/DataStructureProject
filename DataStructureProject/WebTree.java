@@ -23,27 +23,27 @@ public class WebTree {
 		
 	}
 	
-	public void eularPrintTree(){
-		eularPrintTree(root);
-	}
+	// public void eularPrintTree(){
+	// 	eularPrintTree(root);
+	// }
 	
-	private void eularPrintTree(WebNode startNode){
-		int nodeDepth = startNode.getDepth();
+	// private void eularPrintTree(WebNode startNode){
+	// 	int nodeDepth = startNode.getDepth();
 		
-		if(nodeDepth > 1) System.out.print("\n" + repeat("\t", nodeDepth-1));
+	// 	if(nodeDepth > 1) System.out.print("\n" + repeat("\t", nodeDepth-1));
 	
-		System.out.print("(");
-		System.out.print(startNode.webPage.name + "," + startNode.nodeScore);
+	// 	System.out.print("(");
+	// 	System.out.print(startNode.webPage.name + "," + startNode.nodeScore);
 		
-		//3. print child via pre-order
-		for(WebNode child: startNode.children){
-			eularPrintTree(child);
+	// 	//3. print child via pre-order
+	// 	for(WebNode child: startNode.children){
+	// 		eularPrintTree(child);
 			
-		}
-		System.out.print(")");
+	// 	}
+	// 	System.out.print(")");
 				
-		if(startNode.isTheLastChild()) System.out.print("\n" + repeat("\t", nodeDepth-2));	
-	}
+	// 	if(startNode.isTheLastChild()) System.out.print("\n" + repeat("\t", nodeDepth-2));	
+	// }
 	
 	private String repeat(String str, int repeat){
 		String retVal = "";

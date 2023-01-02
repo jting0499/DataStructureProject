@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.jsoup.Jsoup;
@@ -16,7 +17,10 @@ public class GoogleQuery
 	public String searchKeyword;
 	public String url;
 	public String content;
-	
+	public ArrayList<String> titles = new ArrayList<String>();
+	public ArrayList<String> urls = new ArrayList<String>();
+
+
 	public GoogleQuery(String searchKeyword)
 	{
 		this.searchKeyword = searchKeyword;
@@ -78,8 +82,11 @@ public class GoogleQuery
 				{
 					continue;
 				}
+				titles.add(title);
+				urls.add(url);
 				
-				System.out.println("Title: " + title + " , url: " + citeUrl);
+				System.out.println("Title: " + title + " , url: " + citeUrl );
+				
 				
 				//put title and pair into HashMap
 				retVal.put(title, citeUrl);
@@ -91,4 +98,7 @@ public class GoogleQuery
 		}
 		return retVal;
 	}
+
+	
+
 }

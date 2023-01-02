@@ -43,6 +43,8 @@ public class Main {
 			writer.write(g.query().toString());
 			writer.close();
 			System.out.println("done");
+			System.out.println(g.titles);
+			System.out.println(g.urls);
 			sc.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
