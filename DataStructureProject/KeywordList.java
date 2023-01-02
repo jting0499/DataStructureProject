@@ -1,5 +1,3 @@
-package DataStructureProject;
-
 import java.util.*;
 public class KeywordList {	
 	private LinkedList<Keyword> lst;

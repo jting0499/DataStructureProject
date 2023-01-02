@@ -9,26 +9,29 @@ public class Main {
     //讀使用者的input在google的搜尋結果 再把每個結果tree sort
 	
 	public static void main(String[] args) throws FileNotFoundException {
+		ArrayList<Keyword> keywords = new ArrayList<Keyword>();
 		
 		Scanner sc = new Scanner(System.in);
+		System.out.println("搜尋：");
 		String input = sc.next();
-		
 		File file = new File("keywordList.txt");
-//		File url = new File("url.txt");
 		Scanner scanner = new Scanner(file);
-		
+
 		while(scanner.hasNextLine()){
 //			int numOfKeywords = scanner.nextInt();
-			ArrayList<Keyword> keywords = new ArrayList<Keyword>();
 			
-			for(int i = 0; i < 22; i++)
-			{
-				String name = scanner.next();
-				double weight = scanner.nextDouble();
-				Keyword k = new Keyword(name, weight);
-				keywords.add(k);
-			}
+			String name = scanner.next();
+			double weight = scanner.nextDouble();
+			Keyword k = new Keyword(name, weight);
+			keywords.add(k);
 			
+			// for(int i = 0; i < 22; i++)
+			// {
+			// 	String name = scanner.next();
+			// 	double weight = scanner.nextDouble();
+			// 	Keyword k = new Keyword(name, weight);
+			// 	keywords.add(k);
+			// }
 //			tree.setPostOrderScore(keywords);
 //			tree.eularPrintTree();
 		}
@@ -40,6 +43,7 @@ public class Main {
 			writer.write(g.query().toString());
 			writer.close();
 			System.out.println("done");
+			sc.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
