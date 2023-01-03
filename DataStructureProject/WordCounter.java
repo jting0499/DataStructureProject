@@ -28,6 +28,7 @@ public class WordCounter {
     private String fetchContent() throws IOException{
 		URL url = new URL(this.urlStr);
 		URLConnection conn = url.openConnection();
+		conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36");
 		InputStream in = conn.getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 	

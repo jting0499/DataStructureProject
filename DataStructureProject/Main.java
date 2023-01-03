@@ -10,6 +10,7 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Keyword> keywords = new ArrayList<Keyword>();
+		ArrayList<WebPage> webs = new ArrayList<>();
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("搜尋：");
@@ -24,36 +25,31 @@ public class Main {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		ArrayList<WebPage> webs = new ArrayList<>();
+		int count = 0;
 		for(int i = 0; i < g.titles.size(); i++) {
-			WebPage w = new WebPage(g.urls.get(i), g.titles.get(i));
-			webs.add(w);
+			if(g.urls.get(i).indexOf("%") == -1){
+				WebPage w = new WebPage(g.urls.get(i), g.titles.get(i));
+				webs.add(w);
+				count ++;
+			}
 		}
+
+
 		for(WebPage w : webs) {
 			System.out.println(w.name);
 		}
 		System.out.println(g.titles);
 
-		while(scanner.hasNextLine()){
-//			int numOfKeywords = scanner.nextInt();
-			
+
+		while(scanner.hasNextLine()){			
 			String name = scanner.next();
 			double weight = scanner.nextDouble();
 			Keyword k = new Keyword(name, weight);
 			keywords.add(k);
-			
-			// for(int i = 0; i < 22; i++)
-			// {
-			// 	String name = scanner.next();
-			// 	double weight = scanner.nextDouble();
-			// 	Keyword k = new Keyword(name, weight);
-			// 	keywords.add(k);
-			// }
-//			tree.setPostOrderScore(keywords);
-//			tree.eularPrintTree();
+		
 		}
 		scanner.close();
+
 		
 		try {
 			for(WebPage w : webs) {
@@ -66,6 +62,8 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(count);
+
 		
 // 		try {
 // 			FileWriter writer = new FileWriter("url.txt");
