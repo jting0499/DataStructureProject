@@ -25,18 +25,19 @@ public class Main {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		int count = 0;
+		
+		
 		for(int i = 0; i < g.titles.size(); i++) {
-			if(g.urls.get(i).indexOf("%") == -1){
-				WebPage w = new WebPage(g.urls.get(i), g.titles.get(i));
+			if(g.urls.get(i).indexOf("%") == -1) {
+				String u = g.urls.get(i);
+				WebPage w = new WebPage(u.substring(u.indexOf("http"), u.indexOf("&sa")), g.titles.get(i));
 				webs.add(w);
-				count ++;
 			}
 		}
 
 
 		for(WebPage w : webs) {
-			System.out.println(w.name);
+			System.out.println(w.name + w.url);
 		}
 		System.out.println(g.titles);
 
