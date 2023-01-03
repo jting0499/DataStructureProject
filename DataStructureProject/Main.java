@@ -10,46 +10,75 @@ public class Main {
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		ArrayList<Keyword> keywords = new ArrayList<Keyword>();
+		ArrayList<WebPage> webs = new ArrayList<>();
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("搜尋：");
 		String input = sc.next();
 		File file = new File("keywordList.txt");
 		Scanner scanner = new Scanner(file);
-
-		while(scanner.hasNextLine()){
-//			int numOfKeywords = scanner.nextInt();
-			
-			String name = scanner.next();
-			double weight = scanner.nextDouble();
-			Keyword k = new Keyword(name, weight);
-			keywords.add(k);
-			
-			// for(int i = 0; i < 22; i++)
-			// {
-			// 	String name = scanner.next();
-			// 	double weight = scanner.nextDouble();
-			// 	Keyword k = new Keyword(name, weight);
-			// 	keywords.add(k);
-			// }
-//			tree.setPostOrderScore(keywords);
-//			tree.eularPrintTree();
-		}
-		scanner.close();
 		
+		GoogleQuery g = new GoogleQuery(input);
 		try {
-			FileWriter writer = new FileWriter("url.txt");
-			GoogleQuery g = new GoogleQuery(input);
-			writer.write(g.query().toString());
-			writer.close();
-			System.out.println("done");
-			System.out.println(g.titles);
-			System.out.println(g.urls);
-			sc.close();
+			g.query();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
+		for(int i = 0; i < g.titles.size(); i++) {
+			if(g.urls.get(i).indexOf("%") == -1) {
+				String u = g.urls.get(i);
+				WebPage w = new WebPage(u.substring(u.indexOf("http"), u.indexOf("&sa")), g.titles.get(i));
+				webs.add(w);
+			}
+		}
+
+
+		for(WebPage w : webs) {
+			System.out.println(w.name + w.url);
+		}
+		System.out.println(g.titles);
+
+
+		while(scanner.hasNextLine()){			
+			String name = scanner.next();
+			double weight = scanner.nextDouble();
+			Keyword k = new Keyword(name, weight);
+			keywords.add(k);
+		
+		}
+		scanner.close();
+
+		
+		try {
+			for(WebPage w : webs) {
+				w.setScore(keywords);
+				System.out.println(w.score);
+			}
+//			test.setScore(keywords);
+//			System.out.println(test.score);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(count);
+
+		
+// 		try {
+// 			FileWriter writer = new FileWriter("url.txt");
+// 			GoogleQuery g = new GoogleQuery(input);
+// 			writer.write(g.query().toString());
+// 			writer.close();
+// 			System.out.println("done");
+// 			System.out.println(g.titles);
+// 			System.out.println(g.urls);
+// 			sc.close();
+// 		} catch (IOException e1) {
+// 			// TODO Auto-generated catch block
+// 			e1.printStackTrace();
+// 		}
 		
 //		try 
 //		{
