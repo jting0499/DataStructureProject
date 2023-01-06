@@ -1,9 +1,13 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,10 +21,10 @@ public class GoogleQuery
 	public String searchKeyword;
 	public String url;
 	public String content;
-	public ArrayList<String> titles = new ArrayList<String>();
-	public ArrayList<String> urls = new ArrayList<String>();
-
-
+	public ArrayList<WebPage> webs = new ArrayList<WebPage>();
+//	public ArrayList<String> titles = new ArrayList<String>();
+//	public ArrayList<String> urls = new ArrayList<String>();
+	
 	public GoogleQuery(String searchKeyword)
 	{
 		this.searchKeyword = searchKeyword;
@@ -34,7 +38,7 @@ public class GoogleQuery
 		URL u = new URL(url);
 		URLConnection conn = u.openConnection();
 		//set HTTP header
-		conn.setRequestProperty("User-agent", "Chrome/107.0.5304.107");
+		conn.setRequestProperty("User-agent", "Chrome/7.0.517.44");
 		InputStream in = conn.getInputStream();
 
 		InputStreamReader inReader = new InputStreamReader(in, "utf-8");
@@ -82,11 +86,22 @@ public class GoogleQuery
 				{
 					continue;
 				}
-				titles.add(title);
-				urls.add(url);
+//				if(citeUrl.indexOf("kkday") > 0 ) {
+//					continue;
+//				}
+//				if(citeUrl.indexOf("html") > 0) {
+//					continue;
+//				}
+
+				citeUrl = citeUrl.substring(citeUrl.indexOf("http"), citeUrl.indexOf("&sa"));
+//				citeUrl = URLDecoder.decode(citeUrl, "UTF-8");
+				citeUrl = java.net.URLDecoder.decode(citeUrl, StandardCharsets.UTF_8.name());
+				webs.add(new WebPage(citeUrl, title));
+//				titles.add(title);
+//				urls.add(citeUrl);
 				
-				System.out.println("Title: " + title + " , url: " + citeUrl );
-				
+				System.out.println("plz");
+				System.out.println("Title: " + title + " , url: " + citeUrl);
 				
 				//put title and pair into HashMap
 				retVal.put(title, citeUrl);
@@ -98,7 +113,4 @@ public class GoogleQuery
 		}
 		return retVal;
 	}
-
-	
-
 }
