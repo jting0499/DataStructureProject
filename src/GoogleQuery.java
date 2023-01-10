@@ -99,14 +99,15 @@ public class GoogleQuery
 //					continue;
 //				}
 
-				citeUrl = citeUrl.substring(citeUrl.indexOf("http"), citeUrl.indexOf("&sa"));
+				String nCiteUrl = citeUrl.substring(citeUrl.indexOf("http"), citeUrl.indexOf("&sa"));
 //				citeUrl = URLDecoder.decode(citeUrl, "UTF-8");
-				citeUrl = java.net.URLDecoder.decode(citeUrl, StandardCharsets.UTF_8.name());
-				webs.add(new WebPage(citeUrl, title));
+				nCiteUrl = java.net.URLDecoder.decode(nCiteUrl, StandardCharsets.UTF_8.name());
+				webs.add(new WebPage(nCiteUrl, title));
 //				titles.add(title);
 //				urls.add(citeUrl);
 				
-				System.out.println("Title: " + title + " , url: " + citeUrl);
+				System.out.println("Title: " + title + " , 縮短後的url: " + nCiteUrl);
+				System.out.println("原本的url: " + citeUrl);
 				
 				//put title and pair into HashMap
 				retVal.put(title, citeUrl);

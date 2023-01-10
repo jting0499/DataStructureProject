@@ -41,7 +41,7 @@ public class TestProject extends HttpServlet {
 			request.getRequestDispatcher("Search.jsp").forward(request, response);
 			return;
 		}
-//		System.out.println("start");
+		System.out.println("Google搜尋的結果：");
 		GoogleQuery g = new GoogleQuery(request.getParameter("keyword"));
 		HashMap<String, String> query = g.query();
 	
@@ -55,10 +55,11 @@ public class TestProject extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		System.out.println("打分數後的排列結果：");
 		WebSort sort = new WebSort(g.webs);
 		sort.sort();
 		sort.output();
-		System.out.println("you did it :)");
+//		System.out.println("you did it :)");
 		
 		String[][] s = new String[sort.webs.size()][2];
 		request.setAttribute("query", s);
@@ -70,7 +71,7 @@ public class TestProject extends HttpServlet {
 		    s[num][0] = key;
 		    s[num][1] = value;
 		    num++;
-		    System.out.println(key + "" + value);
+//		    System.out.println(key + "" + value);
 		}
 		request.getRequestDispatcher("googleitem.jsp")
 		 .forward(request, response); 
