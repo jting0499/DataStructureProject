@@ -28,7 +28,7 @@ public class GoogleQuery
 	public GoogleQuery(String searchKeyword)
 	{
 		this.searchKeyword = searchKeyword;
-		this.url = "http://www.google.com/search?q="+searchKeyword+"&oe=utf8&num=20";
+		this.url = "http://www.google.com/search?q="+ "美國旅遊" + searchKeyword+"&oe=utf8&num=20";
 	}
 	
 	private String fetchContent() throws IOException
@@ -86,9 +86,15 @@ public class GoogleQuery
 				{
 					continue;
 				}
-//				if(citeUrl.indexOf("kkday") > 0 ) {
-//					continue;
-//				}
+				if(citeUrl.indexOf("wikipedia") > 0 ) {
+					continue;
+				}
+				if(citeUrl.indexOf("baidu") > 0 ) {
+					continue;
+				}
+				if(citeUrl.indexOf("cambridge") > 0 ) {
+					continue;
+				}
 //				if(citeUrl.indexOf("html") > 0) {
 //					continue;
 //				}
@@ -100,7 +106,6 @@ public class GoogleQuery
 //				titles.add(title);
 //				urls.add(citeUrl);
 				
-				System.out.println("plz");
 				System.out.println("Title: " + title + " , url: " + citeUrl);
 				
 				//put title and pair into HashMap

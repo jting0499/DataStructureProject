@@ -44,17 +44,7 @@ public class TestProject extends HttpServlet {
 //		System.out.println("start");
 		GoogleQuery g = new GoogleQuery(request.getParameter("keyword"));
 		HashMap<String, String> query = g.query();
-		
-//		ArrayList<WebPage> webs = new ArrayList<>();
-//		for(int i = 0; i < g.titles.size(); i++) {
-//			if(g.urls.get(i).indexOf("%") == -1 && g.urls.get(i).indexOf("pdf") == -1 
-//					&& g.urls.get(i).indexOf("aa") == -1 && g.urls.get(i).indexOf("tripadvisor") == -1) {
-//				String u = g.urls.get(i);
-//				WebPage w = new WebPage(u, g.titles.get(i));
-////				WebPage w = new WebPage(u.substring(u.indexOf("http"), u.indexOf("&sa")), g.titles.get(i));
-//				webs.add(w);
-//			}
-//		}	
+	
 		KeywordList keys = new KeywordList();
 		try {
 			for(WebPage w : g.webs) {
@@ -64,7 +54,6 @@ public class TestProject extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		System.out.println("done");
 		
 		WebSort sort = new WebSort(g.webs);
 		sort.sort();
