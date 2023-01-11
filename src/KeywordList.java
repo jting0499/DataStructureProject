@@ -35,12 +35,12 @@ public class KeywordList  {
 		lst.add(new Keyword("百度百科",-10000));
 		lst.add(new Keyword("英雄聯盟",-10000));
 		
-		lst.add(new Keyword("美洲",10));
-		lst.add(new Keyword("美国",10));
-		lst.add(new Keyword("旅行社",10));
-		lst.add(new Keyword("套装行程",10));
-		lst.add(new Keyword("当地参团",10));
-		lst.add(new Keyword("热门行程",10));
+		lst.add(new Keyword("美洲",20));
+		lst.add(new Keyword("美国",20));
+		lst.add(new Keyword("旅行社",20));
+		lst.add(new Keyword("套装行程",20));
+		lst.add(new Keyword("当地参团",20));
+		lst.add(new Keyword("热门行程",20));
 		lst.add(new Keyword("方案",10));
 		lst.add(new Keyword("团体",8));
 		lst.add(new Keyword("出团",8));
@@ -59,26 +59,26 @@ public class KeywordList  {
 		lst.add(new Keyword("出发",4));
 		lst.add(new Keyword("加州",4));
 		
-		lst.add(new Keyword("USA",10));
-		lst.add(new Keyword("America",10));
+		lst.add(new Keyword("USA",20));
+		lst.add(new Keyword("America",20));
 		lst.add(new Keyword("California",4));
-		lst.add(new Keyword("America hotel",20));
-		lst.add(new Keyword("America restaurant",20));
-		lst.add(new Keyword("Trip planner",10));
-		lst.add(new Keyword("trip planner",10));
+		lst.add(new Keyword("America hotel",30));
+		lst.add(new Keyword("America restaurant",30));
+		lst.add(new Keyword("Trip planner",20));
+		lst.add(new Keyword("trip planner",20));
 		lst.add(new Keyword("Trip advice",20));
-		lst.add(new Keyword("trip advice",10));
-		lst.add(new Keyword("vacation packages",10));
+		lst.add(new Keyword("trip advice",20));
+		lst.add(new Keyword("vacation packages",20));
 		lst.add(new Keyword("Bucket list",6));
 		lst.add(new Keyword("Road trip",4));
 		lst.add(new Keyword("New York",4));
 		
-		lst.add(new Keyword("アメリカ",10));
-		lst.add(new Keyword("旅行代理店",10));
-		lst.add(new Keyword("パッケージ旅行日程",10));
-		lst.add(new Keyword("現地参加",10));
-		lst.add(new Keyword("人気の旅程",10));
-		lst.add(new Keyword("プログラム",10));
+		lst.add(new Keyword("アメリカ",20));
+		lst.add(new Keyword("旅行代理店",20));
+		lst.add(new Keyword("パッケージ旅行日程",20));
+		lst.add(new Keyword("現地参加",20));
+		lst.add(new Keyword("人気の旅程",20));
+		lst.add(new Keyword("プログラム",20));
 		lst.add(new Keyword("团体",8));
 		lst.add(new Keyword("団体出発",8));
 		lst.add(new Keyword("日帰りツアー",8));
@@ -96,31 +96,6 @@ public class KeywordList  {
 		lst.add(new Keyword("出発",4));
 		lst.add(new Keyword("カリフォルニア",4));
 		lst.add(new Keyword("ウィキペディア",-1000));
-		
-		lst.add(new Keyword("アメリカ",10));
-		lst.add(new Keyword("旅行代理店",10));
-		lst.add(new Keyword("パッケージ旅行日程",10));
-		lst.add(new Keyword("現地参加",10));
-		lst.add(new Keyword("人気の旅程",10));
-		lst.add(new Keyword("プログラム",10));
-		lst.add(new Keyword("团体",8));
-		lst.add(new Keyword("団体出発",8));
-		lst.add(new Keyword("日帰りツアー",8));
-		lst.add(new Keyword("旅程表",8));
-		lst.add(new Keyword("旅行",6));
-		lst.add(new Keyword("アメリカとカナダ",6));
-		lst.add(new Keyword("宿泊施設",6));
-		lst.add(new Keyword("航空券",6));
-		lst.add(new Keyword("アトラクション",6));
-		lst.add(new Keyword("バケーション",6));
-		lst.add(new Keyword("旅行保険",6));
-		lst.add(new Keyword("計画",4));
-		lst.add(new Keyword("登録",4));
-		lst.add(new Keyword("食事",4));
-		lst.add(new Keyword("出発",4));
-		lst.add(new Keyword("カリフォルニア",4));
-		lst.add(new Keyword("ウィキペディア",-1000));
-
 		
     }
 	public ArrayList<Keyword> getList()
